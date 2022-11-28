@@ -1,44 +1,34 @@
-id: funneldrop_analyze_data
+id: circleci-configure-template
 learningObjectives: 
-- Analyzing log data 
+- Creating CircleCI workflow
 hints:
-- Try to find what all the users that drop in the funnel have in common
+- Make sure you gave the right permissions when log in to CircleCI
+- Check the latest tasks in CircleCI for your repository
 startFlow:
   do:
+  - actionId: github_commit_file
+      params:
+        file: config.yml
+        path: .circleci
+        message: "basic template for CircleCI"
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "So, We've identified a very concerning drop on our website. Here’s a data dump of our analytics with the recent traffic and churned users. Can you please have a look, identify the problem, and fix it? [You can find the dump here](https://drive.google.com/file/d/1ax-K7cpTp24fDZaNZNRINX3FJT6BiDv6/view)."
-        delay: 2000
-      - text: "Once you’ve found it, please drop me a message here and let me know what type of users are dropping - so we'll be able to understand the impact and start working on a solution."
-        delay: 3500
+      - text: "OK, I'm sick and tired from the latest issues we had in the frontend, everytime someone is introducing new changes and breaking the tests and we have bugs"
+        delay: 1000
+      - text: "We want to add CircleCI to our repo and make sure we're running the test. For start we got this some simple template to start from? can you add it to the repo and see that you're able to run it from CircleCI UI?"
+        delay: 1500
 trigger:
-  type: user_message
+  type: circleci_event
   params: 
-    person: keen
+    name: rerun
   flowNode:
-    if:
-      conditions:
-      - conditionId: text_match_regex
-        params:
-          text: "${userMessageText}"
-          regex: mobile|android|ios|iphobe|non web
-          flags: i
-      then:
-        do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: Good catch! I'll let the support team know.
-              delay: 1300
-        - actionId: finish_step
-      else:
-        do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: Try again! I'm sure you'll figure this out.
-              delay: 2500
+    do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+        - text: Great, I see that we have some tasks that are running on CircleCI!
+          delay: 1300
+    - actionId: finish_step
