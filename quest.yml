@@ -11,4 +11,4 @@ skills:
 questDependency: docker_localsetup
 slogan: Starting slow
 resources:
-  - circleci
+  - name: circleci
