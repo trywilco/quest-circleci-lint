@@ -7,10 +7,10 @@ hints:
 startFlow:
   do:
   - actionId: github_commit_file
-      params:
-        file: config.yml
-        path: .circleci
-        message: "basic template for CircleCI"
+    params:
+      file: config.yml
+      path: .circleci
+      message: "basic template for CircleCI"
   - actionId: bot_message
     params:
       person: keen
