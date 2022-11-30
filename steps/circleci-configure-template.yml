@@ -2,9 +2,9 @@ id: circleci-configure-template
 learningObjectives: 
 - Creating CircleCI workflow
 hints:
-- Add the configuration to: `.circleci/config.yml` file to a new branch in your repo and push it to github
-- Make sure you gave the right permissions when log in to CircleCI
-- Check the latest tasks in CircleCI for your repository
+- "Add the configuration to: `.circleci/config.yml` file to a new branch in your repo and push it to github"
+- "Make sure you gave the right permissions when log in to CircleCI"
+- "Check the latest tasks in CircleCI for your repository"
 startFlow:
   do:
   - actionId: bot_message
