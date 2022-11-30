@@ -2,33 +2,29 @@ id: circleci-configure-template
 learningObjectives: 
 - Creating CircleCI workflow
 hints:
+- Add the configuration to: `.circleci/config.yml` file to a new branch in your repo and push it to github
 - Make sure you gave the right permissions when log in to CircleCI
 - Check the latest tasks in CircleCI for your repository
 startFlow:
   do:
-  - actionId: github_commit_file
-    params:
-      file: config.yml
-      path: .circleci
-      message: "basic template for CircleCI"
   - actionId: bot_message
     params:
       person: keen
       messages:
       - text: "OK, I'm sick and tired from the latest issues we had in the frontend, everytime someone is introducing new changes and breaking the tests and we have bugs"
         delay: 1000
-      - text: "We want to add CircleCI to our repo and make sure we're running the test. For start we got this some simple template to start from? can you add it to the repo and see that you're able to run it from CircleCI UI?"
+      - text: "We want to add CircleCI to our repo and make sure we're running the test. For start we got this [some simple template to start from](config.yml), can you add it to the repo and see that you're able to run it from CircleCI UI?"
         delay: 1500
 trigger:
   type: circleci_event_received
   params: 
-    name: rerun
+    type: workflow-completed
   flowNode:
     do:
     - actionId: bot_message
       params:
         person: keen
         messages:
-        - text: Great, I see that we have some tasks that are running on CircleCI!
+        - text: Great, I see that we have some workflow that is running on CircleCI!
           delay: 1300
     - actionId: finish_step
