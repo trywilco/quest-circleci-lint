@@ -16,7 +16,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Upload Quest
-        uses: trywilco/uploadQuestAction@shem
+        uses: trywilco/uploadQuestAction@js
         with:
           quest-editor-user-token: ${{ secrets.QUESTS_EDITOR_TOKEN }}
           quest-editor-user-email: shem+armory@wilcohq.com
