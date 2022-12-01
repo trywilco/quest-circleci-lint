@@ -5,6 +5,7 @@ summary: ""
 level: beginner
 steps:
   - circleci-configure-template
+  - circleci-configure-template2
 duration: 1
 skills:
   - circleci
