@@ -1,11 +1,10 @@
 id: circleci-configure
-titl: CircleCI configure
+title: CircleCI configure
 description: "We lately saw many changes that broke our unit tests in the frontend, so we want to run those tests with every change using CircleCI to make sure we don't break anything."
-summary: ""
+summary: "Summary"
 level: beginner
 steps:
   - circleci-configure-template
-  - circleci-configure-template2
 duration: 1
 skills:
   - circleci
