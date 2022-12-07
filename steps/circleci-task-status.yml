@@ -1,0 +1,38 @@
+id: circleci-configure-template
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "ok, so we have everything connected, :instruction[but can you tell me if the job successed or failed?]"
+        delay: 1000
+trigger:
+  type: user_message
+  params: 
+    person: keen
+  flowNode:
+    if:
+      conditions:
+      - conditionId: text_contains_strings
+        params:
+          text: "${userMessageText}"
+          strings:
+          - fail
+      then:
+        do:
+        - actionId: bot_message
+            params:
+              person: keen
+              messages:
+              - text: "Really? oh boy"
+              - delay: 2000
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+            params:
+              person: keen
+              messages:
+              - text: "Are you sure? because I've just got an alert about something failing. :instruction[Can you check again and tell me if the job successed or failed?]"
+              - delay: 2000
