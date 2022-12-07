@@ -1,4 +1,4 @@
-id: circleci-check-step
+id: circleci-check-error
 startFlow:
   do:
   - actionId: bot_message
