@@ -5,6 +5,9 @@ summary: "Summary"
 level: beginner
 steps:
   - circleci-configure-template
+  - circleci-task-status
+  - circleci-check-error
+  - circleci-fix-error
 duration: 1
 skills:
   - circleci
