@@ -9,7 +9,7 @@ startFlow:
   do:
   - actionId: bot_message
     params:
-      person: keenz
+      person: keen
       messages:
       - text: "OK, I'm sick and tired from the latest issues we had in the frontend, everytime someone is introducing new changes and breaking the tests and we have bugs"
         delay: 1000
