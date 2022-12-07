@@ -13,7 +13,7 @@ startFlow:
       messages:
       - text: "OK, I'm sick and tired from the latest issues we had in the frontend, everytime someone is introducing new changes and breaking the tests and we have bugs"
         delay: 1000
-      - text: "We want to add CircleCI to our repo and make sure we're running the test. For start we got this [some simple template to start from](config.yml), can you add it to the repo and see that you're able to run it from CircleCI UI?"
+      - text: "We want to add CircleCI to our repo and make sure we're running the test. For start we got this [some simple template to start from](config.yml), once you'll add it to the repo and push it you'll be able to see a new task on [CircleCI dashabord](https://app.circleci.com/)"
         delay: 1500
 trigger:
   type: circleci_event_received
