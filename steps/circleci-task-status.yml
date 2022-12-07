@@ -1,4 +1,4 @@
-id: circleci-configure-template
+id: circleci-task-status
 startFlow:
   do:
   - actionId: bot_message
