@@ -35,26 +35,25 @@ trigger:
                   messageName: cd
 
             else:
-              do:
-               if:
-                conditions:
-                - conditionId: github_is_file_contains
+             if:
+              conditions:
+              - conditionId: github_is_file_contains
+                params:
+                  fileName: ".circleci/config.yml"
+                  regex: 'working_directory'
+              then:
+                do:
+                - actionId: github_pr_approve
                   params:
-                    fileName: ".circleci/config.yml"
-                    regex: 'working_directory'
-                then:
-                  do:
-                  - actionId: github_pr_approve
-                    params:
-                      person: keen
-                      message: "Approved! Go ahead and merge this PR. Quickly now."
-                else:
-                  do:
-                  - actionId: github_pr_reject
-                    params:
-                      person: keen
-                      message: "Seems like I'm missing how you made it work without setting the right working directory" 
-                      messageName: working_directory
+                    person: keen
+                    message: "Approved! Go ahead and merge this PR. Quickly now."
+              else:
+                do:
+                - actionId: github_pr_reject
+                  params:
+                    person: keen
+                    message: "Seems like I'm missing how you made it work without setting the right working directory" 
+                    messageName: working_directory
           
         github_pr_merged:
           do:
