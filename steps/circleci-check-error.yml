@@ -22,17 +22,17 @@ trigger:
       then:
         do:
         - actionId: bot_message
-            params:
-              person: keen
-              messages:
-              - text: "Oh.... why doesn't it find the package.json...."
-              - delay: 2000
+          params:
+            person: keen
+            messages:
+            - text: "Oh.... why doesn't it find the package.json...."
+            - delay: 2000
         - actionId: finish_step
       else:
         do:
         - actionId: bot_message
-            params:
-              person: keen
-              messages:
-              - text: "Not sure that makes sense, can you try again?"
-              - delay: 2000
+          params:
+            person: keen
+            messages:
+            - text: "Not sure that makes sense, can you try again?"
+            - delay: 2000
