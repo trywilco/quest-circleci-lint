@@ -4,15 +4,15 @@ description: "We lately saw many changes that broke our unit tests in the fronte
 summary: "Summary"
 level: beginner
 steps:
-  - circleci-configure-template
-  - circleci-task-status
-  - circleci-check-error
-  - circleci-fix-error
-  - circleci-open-pr
+- circleci-configure-template
+- circleci-task-status
+- circleci-check-error
+- circleci-fix-error
+- circleci-open-pr
 duration: 1
 skills:
-  - circleci
+- circleci
 questDependency: docker_localsetup
 slogan: Starting slow
 resources:
-  - name: circleci
+- name: circleci
