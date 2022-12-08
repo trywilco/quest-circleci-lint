@@ -31,8 +31,8 @@ trigger:
       else:
         do:
           - actionId: bot_message
-              params:
-                person: keen
-                messages:
-                - text: "Are you sure? because I've just got an alert about something failing. :instruction[Can you check again and tell me if the job successed or failed?]"
-                - delay: 2000
+            params:
+              person: keen
+              messages:
+              - text: "Are you sure? because I've just got an alert about something failing. :instruction[Can you check again and tell me if the job successed or failed?]"
+              - delay: 2000
