@@ -21,7 +21,7 @@ trigger:
           - fail
       then:
         do:
-        - actionId: bot_message
+          - actionId: bot_message
             params:
               person: keen
               messages:
