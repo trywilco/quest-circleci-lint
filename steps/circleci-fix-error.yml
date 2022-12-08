@@ -21,12 +21,12 @@ trigger:
             text: ${outputs.workflow.status}
             strings:
             - success
-      then:
-        do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: "Cool, I see green!"
-            - delay: 2000
-        - actionId: finish_step
+        then:
+          do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+              - text: "Cool, I see green!"
+              - delay: 2000
+          - actionId: finish_step
