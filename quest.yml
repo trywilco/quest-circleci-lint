@@ -8,6 +8,7 @@ steps:
   - circleci-task-status
   - circleci-check-error
   - circleci-fix-error
+  - circleci-open-pr
 duration: 1
 skills:
   - circleci
