@@ -2,8 +2,8 @@
 
 ## Quest Details 
 #### title: Circle CI configure
-#### level: intermittent
-#### skills: devops, cicd, git
+#### level: intermediate
+#### skills: devops, ci/cd, git
 #### dependencies: docker-localsetup
 
 
