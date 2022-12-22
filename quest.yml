@@ -1,7 +1,7 @@
 id: circleci-configure
 title: CircleCI configure
-description: "We lately saw many changes that broke our unit tests in the frontend, so we want to run those tests with every change using CircleCI to make sure we don't break anything."
-summary: "Summary"
+description: "This quest will guide you through the process of using CircleCI to solve problems in your development workflow. CircleCI is a continuous integration and delivery platform that helps automate various tasks, such as building and testing code, to ensure it is always deployable. We will show you how to configure CircleCI to streamline your workflow and improve the quality of your code."
+summary: "In this quest a user configure CircleCI to automatically run frontend tests on every pull request by setting up a continuous integration pipeline and specifying the tests as part of the pipeline tasks. This helps to ensure that code changes are thoroughly tested and that any issues are identified and addressed early in the development process."
 level: beginner
 steps:
 - circleci-configure-template
