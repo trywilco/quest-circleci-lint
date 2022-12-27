@@ -22,7 +22,7 @@ trigger:
         github_pr_workflow_complete_success:
           if:
             conditions:
-            - conditionId: github_is_file_contains
+            - conditionId: github_does_file_contain
               params:
                 fileName: ".circleci/config.yml"
                 regex: 'cd|prefix'
@@ -37,7 +37,7 @@ trigger:
             else:
              if:
               conditions:
-              - conditionId: github_is_file_contains
+              - conditionId: github_does_file_contain
                 params:
                   fileName: ".circleci/config.yml"
                   regex: 'working_directory'
