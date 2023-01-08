@@ -12,7 +12,7 @@ startFlow:
       person: keen
       messages:
       - text: "I wanted to start you off on a small project to get you up to speed on how we work here."
-      - test: "One of our expert developers suggested that we should migrate our CircleCI configuration to an orb. Orbs are reusable packages of CircleCI configuration that can be shared and reused across projects."
+      - text: "One of our expert developers suggested that we should migrate our CircleCI configuration to an orb. Orbs are reusable packages of CircleCI configuration that can be shared and reused across projects."
       - text: "Migrating to an orb can make your configuration easier to maintain and share with others. Plus, it's just generally considered a best practice these days."
       - text: "Please replace the .circleci/config.yml file with a .circleci/config.yml file that references an orb. Once you've done that, push it and make sure the task passes in CircleCI."
 trigger:
