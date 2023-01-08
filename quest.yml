@@ -1,18 +1,18 @@
-id: circleci-configure
-title: CircleCI configure
-description: "This quest will guide you through the process of using CircleCI to solve problems in your development workflow. CircleCI is a continuous integration and delivery platform that helps automate various tasks, such as building and testing code, to ensure it is always deployable. We will show you how to configure CircleCI to streamline your workflow and improve the quality of your code."
-summary: "In this quest a user configure CircleCI to automatically run frontend tests on every pull request by setting up a continuous integration pipeline and specifying the tests as part of the pipeline tasks. This helps to ensure that code changes are thoroughly tested and that any issues are identified and addressed early in the development process."
-level: beginner
+id: circleci-lint
+title: CircleCI Lint
+description: "In this quest a user will learn how to troubleshoot common issues and optimize their workflow for maximum efficiency. By the end of the quest, you will have a deep understanding of how to use CircleCI to streamline their development process and ensure reliable, high-quality deployments."
+summary: "This quest teaches players how to use advanced CircleCI configuration techniques to optimize their continuous integration including customizing their configuration to handle complex use cases. It also covers troubleshooting common issues and optimizing workflow for maximum efficiency."
+level: intermediate
 steps:
-- circleci-configure-template
-- circleci-task-status
-- circleci-check-error
-- circleci-fix-error
-- circleci-open-pr
-duration: 1
+- circleci-orbs
+- circleci-lint
+- circleci-prettier
+- circleci-prettier-write
+duration: 0.5
 skills:
 - circleci
-questDependency: docker_localsetup
-slogan: Starting slow
+- operations
+questDependency: circleci-configure
+slogan: Getting up speed
 resources:
 - name: circleci

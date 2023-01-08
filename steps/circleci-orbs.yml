@@ -1,0 +1,42 @@
+id: circleci-check-error
+hints:
+- "Follow the instructions in the [CircleCI documentation](https://circleci.com/docs/orb-intro/) for more information on how to do this."
+- "See how to use the Node orbs here: https://circleci.com/docs/language-javascript/"
+startFlow:
+  do:
+  - actionId: github_commit_file
+    params:
+      file: ${info.txt}
+      path: "."
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "I wanted to start you off on a small project to get you up to speed on how we work here."
+      - test: "One of our expert developers suggested that we should migrate our CircleCI configuration to an orb. Orbs are reusable packages of CircleCI configuration that can be shared and reused across projects."
+      - text: "Migrating to an orb can make your configuration easier to maintain and share with others. Plus, it's just generally considered a best practice these days."
+      - text: "Please replace the .circleci/config.yml file with a .circleci/config.yml file that references an orb. Once you've done that, push it and make sure the task passes in CircleCI."
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    if:
+      conditions:
+      - conditionId: github_is_file_added_in_push
+        params:
+          file: ".circleci/config.yml"
+          strings: "orbs:"
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: "Sweet, now we're able to use the orb in our config."
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: "Are you sure you've replaced the config with an orb?"
