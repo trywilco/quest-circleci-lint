@@ -1,4 +1,4 @@
-id: circleci-check-error
+id: circleci-orbs
 hints:
 - "Follow the instructions in the [CircleCI documentation](https://circleci.com/docs/orb-intro/) for more information on how to do this."
 - "See how to use the Node orbs here: https://circleci.com/docs/language-javascript/"
@@ -7,7 +7,6 @@ startFlow:
   - actionId: github_commit_file
     params:
       file: ${info.txt}
-      path: "."
   - actionId: bot_message
     params:
       person: keen
