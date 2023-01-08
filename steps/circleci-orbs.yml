@@ -6,7 +6,7 @@ startFlow:
   do:
   - actionId: github_commit_file
     params:
-      file: ${info.txt}
+      file: ${config.yml}
   - actionId: bot_message
     params:
       person: keen
