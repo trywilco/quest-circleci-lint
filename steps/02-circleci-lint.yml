@@ -1,0 +1,33 @@
+id: circleci-lint
+hints:
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "Now that we have Node orb configured, we shuold be able to easily add linting check as part of the checks"
+      - text: "Add another step to run `yarn lint` as part of the CI"
+      - text: "Lint is a very usefull tool to format the code in an automatic way to make sure we're all aligned."
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    if:
+      conditions:
+      - conditionId: github_does_file_contain
+        params:
+          fileName: ".circleci/config.yml"
+          regex: "test"
+      then:
+        do:
+        - actionId: github_pr_comment
+          params:
+            person: keen
+            message: "Great, I think this will save us some time on formatting comments as part of the code review"
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: github_pr_comment
+          params:
+            person: keen
+            message: "Hmmmm, not sure I see where you run the lint task"

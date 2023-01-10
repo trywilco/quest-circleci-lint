@@ -20,7 +20,7 @@ startFlow:
       - text: "I wanted to start you off on a small project to get you up to speed on how we work here."
       - text: "One of our expert developers suggested that we should migrate our CircleCI configuration to an orb. Orbs are reusable packages of CircleCI configuration that can be shared and reused across projects."
       - text: "Migrating to an orb can make your configuration easier to maintain and share with others. Plus, it's just generally considered a best practice these days."
-      - text: "Please replace the .circleci/config.yml file with a .circleci/config.yml file that references an orb. Once you've done that, push it and make sure the task passes in CircleCI."
+      - text: "Please replace the .circleci/config.yml content to references an orb. Once you've done that, push it and make sure the task passes in CircleCI."
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -32,16 +32,14 @@ trigger:
           regex: "orbs:"
       then:
         do:
-        - actionId: bot_message
+        - actionId: github_pr_comment
           params:
             person: keen
-            messages:
-            - text: "Sweet, now we're able to use the orb in our config."
+            message: "Sweet, now we're able to use the orb in our config. Kust make sure the tasks is succesfully run on CircleCI"
         - actionId: finish_step
       else:
         do:
-        - actionId: bot_message
+        - actionId: github_pr_comment
           params:
             person: keen
-            messages:
-            - text: "Are you sure you've replaced the config with an orb?"
+            message: "Are you sure you've replaced the config with an orb?"
