@@ -7,7 +7,7 @@ startFlow:
       person: keen
       messages:
       - text: "Now we want to levarage prettier to fix some linting problem if they find ones, and auto commit those."
-      - text: "For this can run `yarn prettier" with `write` mode to make sure it'll fix all the problematic files."
+      - text: "For this can run `yarn prettier` with `write` mode to make sure it'll fix all the problematic files."
       - text: "Add this to our CI process and see they fix any files automatically"
 trigger:
   type: github_pr_lifecycle_status
