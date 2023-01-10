@@ -16,14 +16,13 @@ trigger:
       - conditionId: github_does_file_contain
         params:
           fileName: ".circleci/config.yml"
-          regex: "test"
+          regex: "SHEM"
       then:
         do:
         - actionId: github_pr_comment
           params:
             person: keen
             message: "Great, I think this will save us some time on formatting comments as part of the code review"
-        - actionId: finish_step
       else:
         do:
         - actionId: github_pr_comment

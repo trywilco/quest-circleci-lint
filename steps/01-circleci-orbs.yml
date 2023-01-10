@@ -35,7 +35,7 @@ trigger:
         - actionId: github_pr_comment
           params:
             person: keen
-            message: "Sweet, now we're able to use the orb in our config. Kust make sure the tasks is succesfully run on CircleCI"
+            message: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is succesfully run on CircleCI"
         - actionId: finish_step
       else:
         do:
