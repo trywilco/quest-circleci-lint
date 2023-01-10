@@ -1,7 +1,12 @@
 id: circleci-orbs
 hints:
 - "Follow the instructions in the [CircleCI documentation](https://circleci.com/docs/orb-intro/) for more information on how to do this."
-- "See how to use the Node orbs here: https://circleci.com/docs/language-javascript/"
+- "See how to use the Node orb here: https://circleci.com/docs/language-javascript/"
+- >
+Use this params for `node/test` jobs:
+  app-dir: frontend
+  version: "16.18"
+  pkg-manager: yarn
 startFlow:
   do:
   - actionId: github_commit_file
@@ -21,10 +26,10 @@ trigger:
   flowNode:
     if:
       conditions:
-      - conditionId: github_is_file_added_in_push
+      - conditionId: github_does_file_contain
         params:
-          file: ".circleci/config.yml"
-          strings: "orbs:"
+          fileName: ".circleci/config.yml"
+          regex: "orbs:"
       then:
         do:
         - actionId: bot_message
