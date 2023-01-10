@@ -12,7 +12,6 @@ duration: 0.5
 skills:
 - circleci
 - operations
-questDependency: circleci-configure
 slogan: Getting up speed
 resources:
 - name: circleci
