@@ -6,26 +6,33 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Now that we have Node orb configured, we shuold be able to easily add linting check as part of the checks"
-      - text: "Add another step to run `yarn lint` as part of the CI"
+      - text: "Now we want to levarage prettier to fix some linting problem if they find ones, and auto commit those."
+      - text: "For this can run `yarn prettier" with `write` mode to make sure it'll fix all the problematic files."
+      - text: "Add this to our CI process and see they fix any files automatically"
 trigger:
   type: github_pr_lifecycle_status
-  flowNode:
-    if:
-      conditions:
-      - conditionId: github_does_file_contain
-        params:
-          fileName: ".circleci/config.yml"
-          regex: "SHEM"
-      then:
-        do:
-        - actionId: github_pr_comment
-          params:
-            person: keen
-            message: "Great, I think this will save us some time on formatting comments as part of the code review"
-      else:
-        do:
-        - actionId: github_pr_comment
-          params:
-            person: keen
-            message: "Hmmmm, not sure I see where you run the lint task"
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+            - conditionId: github_does_file_contain
+              params:
+                fileName: ".circleci/config.yml"
+                regex: " -w | --write "
+            - conditionId: github_is_file_modified
+              params:
+                fileName: "frontend/src/components/Item/DeleteButton.js"
+            then:
+              do:
+              - actionId: github_pr_comment
+                params:
+                  person: keen
+                  message: "Prettier ✅"
+            else:
+              do:
+              - actionId: github_pr_comment
+                params:
+                  person: keen
+                  message: "Prettier ❌"

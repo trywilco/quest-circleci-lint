@@ -13,6 +13,10 @@ startFlow:
     params:
       file: ${config.yml}
       path: .circleci
+  - actionId: github_commit_file
+    params:
+      file: ${DeleteButton.js}
+      path: frontend/src/components/Item
   - actionId: bot_message
     params:
       person: keen
@@ -23,23 +27,26 @@ startFlow:
       - text: "Please replace the .circleci/config.yml content to references an orb. Once you've done that, push it and make sure the task passes in CircleCI."
 trigger:
   type: github_pr_lifecycle_status
-  flowNode:
-    if:
-      conditions:
-      - conditionId: github_does_file_contain
-        params:
-          fileName: ".circleci/config.yml"
-          regex: "orbs:"
-      then:
-        do:
-        - actionId: github_pr_comment
-          params:
-            person: keen
-            message: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is succesfully run on CircleCI"
-        - actionId: finish_step
-      else:
-        do:
-        - actionId: github_pr_comment
-          params:
-            person: keen
-            message: "Are you sure you've replaced the config with an orb?"
+    switch:
+      key: "${eventType}"
+      cases:
+        github_pr_workflow_complete_success:
+          if:
+            conditions:
+            - conditionId: github_does_file_contain
+              params:
+                fileName: ".circleci/config.yml"
+                regex: "orbs:"
+            then:
+              do:
+              - actionId: github_pr_comment
+                params:
+                  person: keen
+                  message: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is succesfully run on CircleCI"
+              - actionId: finish_step
+            else:
+              do:
+              - actionId: github_pr_comment
+                params:
+                  person: keen
+                  message: "Are you sure you've replaced the config with an orb?"
