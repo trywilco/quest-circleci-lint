@@ -11,6 +11,7 @@ startFlow:
       - text: "Lint is a very usefull tool to format the code in an automatic way to make sure we're all aligned."
 trigger:
   type: github_pr_lifecycle_status
+  flowNode:
     switch:
       key: "${eventType}"
       cases:

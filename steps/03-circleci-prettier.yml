@@ -11,6 +11,7 @@ startFlow:
       - text: "Add this to our CI process and see they fix any files automatically"
 trigger:
   type: github_pr_lifecycle_status
+  flowNode:
     switch:
       key: "${eventType}"
       cases:
