@@ -7,7 +7,6 @@ steps:
 - circleci-orbs
 - circleci-lint
 - circleci-fix
-# - circleci-prettier-write
 duration: 0.5
 skills:
 - circleci

@@ -15,6 +15,7 @@ trigger:
       cases:
         github_pr_workflow_complete_success:
           if:
+            conditions:
             - conditionId: github_is_file_modified
               params:
                 fileName: "frontend/src/components/Item/DeleteButton.js"
@@ -30,7 +31,7 @@ trigger:
                 params:
                   person: keen
                   message: "I see the checks work but can see that you fix the relevant file"
-                  
+
         github_pr_merged:
           do:
           - actionId: finish_step
