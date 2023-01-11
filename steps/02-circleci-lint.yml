@@ -15,13 +15,13 @@ trigger:
     switch:
       key: "${eventType}"
       cases:
-        github_pr_workflow_complete_success:
+        github_pr_workflow_complete_failed:
           if:
             conditions:
             - conditionId: github_does_file_contain
               params:
                 fileName: ".circleci/config.yml"
-                regex: "test"
+                regex: "lint"
             then:
               do:
               - actionId: github_pr_comment

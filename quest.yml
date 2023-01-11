@@ -6,7 +6,7 @@ level: intermediate
 steps:
 - circleci-orbs
 - circleci-lint
-- circleci-prettier
+- circleci-fix
 # - circleci-prettier-write
 duration: 0.5
 skills:

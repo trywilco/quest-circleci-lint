@@ -6,9 +6,7 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Now we want to levarage prettier to fix some linting problem if they find ones, and auto commit those."
-      - text: "For this can run `yarn prettier` with `write` mode to make sure it'll fix all the problematic files."
-      - text: "Add this to our CI process and see they fix any files automatically"
+      - text: "I see that the CI process detected some problems with out code, how about fixing it so we'll be able to merge the changes?"
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -17,11 +15,6 @@ trigger:
       cases:
         github_pr_workflow_complete_success:
           if:
-            conditions:
-            - conditionId: github_does_file_contain
-              params:
-                fileName: ".circleci/config.yml"
-                regex: " -w | --write "
             - conditionId: github_is_file_modified
               params:
                 fileName: "frontend/src/components/Item/DeleteButton.js"
@@ -30,10 +23,14 @@ trigger:
               - actionId: github_pr_comment
                 params:
                   person: keen
-                  message: "Prettier ✅"
+                  message: "Nice! Now you can merge it and small issues like this hopefully won't bother us anymore"
             else:
               do:
               - actionId: github_pr_comment
                 params:
                   person: keen
-                  message: "Prettier ❌"
+                  message: "I see the checks work but can see that you fix the relevant file"
+                  
+        github_pr_merged:
+          do:
+          - actionId: finish_step
