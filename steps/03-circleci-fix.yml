@@ -1,4 +1,4 @@
-id: circleci-prettier
+id: circleci-fix
 hints:
 startFlow:
   do:
