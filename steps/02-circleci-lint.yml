@@ -11,11 +11,18 @@ startFlow:
       - text: "Lint is a very usefull tool to format the code in an automatic way to make sure we're all aligned."
 trigger:
   type: circleci_event_received
+  name: circleci
+  params:
+    type: job-completed
   flowNode:
     if:
       conditions:
+      - conditionId: is_truthy
+        params:
+          value: ${output.circleci?.job?.status === 'failed'}
       - conditionId: github_does_file_contain
         params:
+          branch: ${output.circleci?.pipeline?.vcs?.branch}
           fileName: ".circleci/config.yml"
           regex: "lint"
       then:
