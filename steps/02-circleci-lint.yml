@@ -10,7 +10,7 @@ startFlow:
       - text: "Add another step to run `yarn lint` as part of the CI"
       - text: "Lint is a very usefull tool to format the code in an automatic way to make sure we're all aligned."
 trigger:
-  type: circircleci_event_receivedcleci
+  type: circircleci_event_received
   flowNode:
     if:
       conditions:
