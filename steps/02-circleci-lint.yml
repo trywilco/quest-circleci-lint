@@ -26,14 +26,16 @@ trigger:
           regex: "lint"
       then:
         do:
-        - actionId: github_pr_comment
+        - actionId: bot_message
           params:
             person: keen
-            message: "Great, I think this will save us some time on formatting comments as part of the code review"
+            messages:
+            - text: "Great, I think this will save us some time on formatting comments as part of the code review"
         - actionId: finish_step
       else:
         do:
-        - actionId: github_pr_comment
+        - actionId: bot_message
           params:
             person: keen
-            message: "Hmmmm, not sure I see where you run the lint task"
+            messages:
+            - text: "Hmmmm, not sure I see where you run the lint task"

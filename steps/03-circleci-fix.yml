@@ -7,6 +7,7 @@ startFlow:
       person: keen
       messages:
       - text: "I see that the CI process detected some problems with out code, how about fixing it so we'll be able to merge the changes?"
+      - text: "Open a PR with the fix and make sure the task passes in CircleCI."
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
