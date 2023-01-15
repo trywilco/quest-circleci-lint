@@ -18,10 +18,10 @@ trigger:
       conditions:
       - conditionId: is_truthy
         params:
-          value: ${output.job?.status === 'failed'}
+          value: ${outputs.job?.status === 'failed'}
       - conditionId: github_does_file_contain
         params:
-          branch: ${output.pipeline?.vcs?.branch}
+          branch: ${outputs.pipeline?.vcs?.branch}
           fileName: ".circleci/config.yml"
           regex: "lint"
       then:
