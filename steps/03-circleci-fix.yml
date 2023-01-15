@@ -22,16 +22,16 @@ trigger:
                 fileName: "frontend/src/components/Item/DeleteButton.js"
             then:
               do:
-              - actionId: github_pr_comment
+              - actionId: github_pr_approve
                 params:
                   person: keen
                   message: "Nice! Now you can merge it and small issues like this hopefully won't bother us anymore"
             else:
               do:
-              - actionId: github_pr_comment
+              - actionId: github_pr_reject
                 params:
                   person: keen
-                  message: "I see the checks work but can see that you fix the relevant file"
+                  message: "Are you sure you fixed the relevant file?"
 
         github_pr_merged:
           do:
