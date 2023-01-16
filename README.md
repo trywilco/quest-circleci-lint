@@ -12,7 +12,7 @@
 
 ## Overview
 
-In this quest we'll leverage CircleCI and use to to run (and fix) the code on every PR
+In this quest we'll leverage CircleCI and use to run (and fix) the code on every PR
 
 ## Outline
 

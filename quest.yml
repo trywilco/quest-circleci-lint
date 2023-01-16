@@ -1,7 +1,7 @@
 id: circleci-lint
 title: CircleCI Lint
-description: "In this quest a user will learn how to troubleshoot common issues and optimize their workflow for maximum efficiency. By the end of the quest, you will have a deep understanding of how to use CircleCI to streamline their development process and ensure reliable, high-quality deployments."
-summary: "This quest teaches players how to use advanced CircleCI configuration techniques to optimize their continuous integration including customizing their configuration to handle complex use cases. It also covers troubleshooting common issues and optimizing workflow for maximum efficiency."
+description: "In this quest, a user will learn how to use CircleCI to lint our code in an automatic way. We will learn how to add a linting task to CircleCI to streamline their development process and ensure code adheres to established style guidelines."
+summary: "In this quest you have learned how to use CircleCI for automated code linting. We covered how to add a linting task to CircleCI to improve the development process and ensure code adheres to established style guidelines."
 level: intermediate
 steps:
 - circleci-orbs
