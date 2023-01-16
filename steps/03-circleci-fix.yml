@@ -7,7 +7,7 @@ startFlow:
       person: keen
       messages:
       - text: "I see that the CI process detected some problems with out code, how about fixing it so we'll be able to merge the changes?"
-      - text: "Open a PR with the fix and make sure the task passes in CircleCI."
+      - text: "Push your changes with the fix to the existing PR and make sure the task passes in CircleCI."
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -26,12 +26,24 @@ trigger:
                 params:
                   person: keen
                   message: "Nice! Now you can merge it and small issues like this hopefully won't bother us anymore"
+              - actionId: bot_message
+                params:
+                  person: keen
+                  messages:
+                    - text: "Nice! Now you can merge it and small issues like this hopefully won't bother us anymore"
+                      delay: 1300
             else:
               do:
               - actionId: github_pr_reject
                 params:
                   person: keen
                   message: "Are you sure you fixed the relevant file?"
+              - actionId: bot_message
+                params:
+                  person: keen
+                  messages:
+                    - text: "Are you sure you fixed the relevant file?"
+                      delay: 1300
 
         github_pr_merged:
           do:
