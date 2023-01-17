@@ -6,9 +6,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "Now that we have Node orb configured, we should be able to easily add linting check as part of the checks"
-      - text: "Add another step to run `yarn lint` as part of the CI"
-      - text: "A linter is a useful tool that automatically ensures code is properly formatted and adheres to established style guidelines."
+      - text: "Now that we have Node orb configured, we should be able to easily add linting check as part of the checks."
+      - text: "A linter is a  tool that automatically ensures code is properly formatted and adheres to established style guidelines."
+      - text: "So let's add another step to run `yarn lint` as part of the CI."
 trigger:
   type: circleci_event_received
   params:
