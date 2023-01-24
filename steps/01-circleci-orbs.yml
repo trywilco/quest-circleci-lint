@@ -26,28 +26,32 @@ startFlow:
       - text: "Migrating to an orb can make your configuration easier to maintain and share with others. Plus, it's just generally considered a best practice these days."
       - text: "Please run `git pull` and replace the .circleci/config.yml content to reference an orb. Once you've done that, open a PR with the changes and make sure the task passes in CircleCI."
 trigger:
-  type: github_pr_lifecycle_status
+  type: circleci_event_received
+  params:
+    type: job-completed
   flowNode:
-    switch:
-      key: "${eventType}"
-      cases:
-        github_pr_workflow_complete_success:
-          if:
-            conditions:
-            - conditionId: github_does_file_contain
-              params:
-                fileName: ".circleci/config.yml"
-                regex: "orbs:"
-            then:
-              do:
-              - actionId: github_pr_comment
-                params:
-                  person: keen
-                  message: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is successfully run on CircleCI"
-              - actionId: finish_step
-            else:
-              do:
-              - actionId: github_pr_comment
-                params:
-                  person: keen
-                  message: "Are you sure you've replaced the config with an orb?"
+    if:
+      conditions:
+      - conditionId: is_truthy
+        params:
+          value: ${outputs.job?.status === 'success'}
+      - conditionId: github_does_file_contain
+        params:
+          branch: ${outputs.pipeline?.vcs?.branch}
+          fileName: ".circleci/config.yml"
+          regex: "orbs:
+      then:
+          do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages: 
+              - text: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is successfully run on CircleCI"
+          - actionId: finish_step
+        else:
+          do:
+          - actionId: bot_message
+            params:
+              person: keen
+              messages: 
+              - text: "Are you sure you've replaced the config with an orb?"
