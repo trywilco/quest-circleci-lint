@@ -39,13 +39,13 @@ trigger:
         params:
           branch: ${outputs.pipeline?.vcs?.branch}
           fileName: ".circleci/config.yml"
-          regex: "orbs:
+          regex: '"orbs:'
       then:
           do:
           - actionId: bot_message
             params:
               person: keen
-              messages: 
+              messages:
               - text: "Sweet, now we're able to use the orb in our config. Just make sure the tasks is successfully run on CircleCI"
           - actionId: finish_step
         else:
@@ -53,5 +53,5 @@ trigger:
           - actionId: bot_message
             params:
               person: keen
-              messages: 
+              messages:
               - text: "Are you sure you've replaced the config with an orb?"
