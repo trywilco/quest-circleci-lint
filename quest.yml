@@ -1,9 +1,10 @@
 id: circleci-lint
 title: CircleCI Lint
-subtitle: CircleCI Lint
+subtitle: Learn to lint code automatically using CircleCI
 description: "In this quest, a user will learn how to use CircleCI to lint our code in an automatic way. We will learn how to add a linting task to CircleCI to streamline their development process and ensure code adheres to established style guidelines."
 summary: "In this quest you have learned how to use CircleCI for automated code linting. We covered how to add a linting task to CircleCI to improve the development process and ensure code adheres to established style guidelines."
 level: intermediate
+repository: https://github.com/trywilco/Anythink-Market-Public
 steps:
 - circleci-orbs
 - circleci-lint
@@ -12,6 +13,5 @@ duration: 0.5
 skills:
 - circleci
 - operations
-slogan: Getting up speed
 resources:
 - name: circleci
