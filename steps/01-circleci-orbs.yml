@@ -39,7 +39,7 @@ trigger:
         params:
           branch: ${outputs.pipeline?.vcs?.branch}
           fileName: ".circleci/config.yml"
-          regex: '"orbs:'
+          regex: 'orbs:'
       then:
           do:
           - actionId: bot_message
